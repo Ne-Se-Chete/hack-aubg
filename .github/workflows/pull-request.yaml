@@ -1,4 +1,4 @@
-name: Pull Request - PI Bank Backend
+name: Pull Request - PatchBot
 
 on:
   pull_request:
