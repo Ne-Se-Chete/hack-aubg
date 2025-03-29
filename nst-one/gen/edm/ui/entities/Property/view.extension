@@ -1,0 +1,5 @@
+{
+    "module": "nst-one/gen/edm/ui/entities/Property/view.js",
+    "extensionPoint": "nst-one-view",
+    "description": "nst-one - Application View"
+}

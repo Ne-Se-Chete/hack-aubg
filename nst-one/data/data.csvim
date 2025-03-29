@@ -1,0 +1,15 @@
+{
+  "files": [
+    {
+      "table": "PROPERTY",
+      "schema": "PUBLIC",
+      "file": "/nst-one/data/properties.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": ""
+    }
+  ]
+}
