@@ -1,0 +1,5 @@
+{
+    "module": "nst-one/gen/edm/ui/entities/Property/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "nst-one - Application Tile"
+}

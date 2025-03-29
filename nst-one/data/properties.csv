@@ -1,0 +1,5 @@
+PROPERTY_ID,PROPERTY_NAME
+1,temperature
+2,humidity
+3,lat
+4,long

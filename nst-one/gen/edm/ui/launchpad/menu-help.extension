@@ -1,0 +1,5 @@
+{
+    "module": "nst-one/gen/edm/ui/launchpad/menu-help.js",
+    "extensionPoint": "nst-one-menu",
+    "description": "nst-one - Application Menu"
+}

@@ -1,0 +1,63 @@
+{
+    "schema": {
+        "structures": [
+            {
+                "name": "READING",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "READING_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "READING_PROPERTY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "READING_VALUE"
+                    },
+                    {
+                        "type": "TIMESTAMP",
+                        "nullable": true,
+                        "name": "READING_TIMESTAMP"
+                    }
+                ]
+            },
+            {
+                "name": "PROPERTY",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PROPERTY_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "PROPERTY_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "Reading_Property",
+                "type": "foreignKey",
+                "table": "READING",
+                "constraintName": "Reading_Property",
+                "columns": "READING_PROPERTY",
+                "referencedTable": "PROPERTY",
+                "referencedColumns": "PROPERTY_ID"
+            }
+        ]
+    },
+    "datasource": "DefaultDB"
+}

@@ -1,0 +1,5 @@
+{
+    "module": "nst-one/gen/edm/ui/entities/Property/dialog-window/view.js",
+    "extensionPoint": "dialog-window",
+    "description": "nst-one - Application Dialog Window"
+}

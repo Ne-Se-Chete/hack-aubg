@@ -1,0 +1,5 @@
+{
+    "module": "nst-one/gen/edm/ui/entities/perspective.js",
+    "extensionPoint": "portal",
+    "description": "nst-one - Perspective - entities"
+}
