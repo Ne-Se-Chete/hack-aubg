@@ -1,0 +1,3 @@
+[submodule "client-dashboard"]
+	path = client-dashboard
+	url = https://github.com/ValeriTodorov01/hackAUBG-frontend
