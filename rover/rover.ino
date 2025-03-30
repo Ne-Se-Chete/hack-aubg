@@ -19,7 +19,7 @@ const int motor2Pin2 = 8;
 const int triggerPin = 3;
 const int echoPin = 4;
 
-int distance = 100;
+long distance = 100;
 uint8_t servonum = 0;
 int return_code = -1;
 
@@ -155,14 +155,15 @@ void setup() {
   pwm.setPWMFreq(SERVO_FREQ);  // Analog servos run at ~50 Hz updates
   delay(1000);
 
-  pwm.setPWM(0, 0, 600);
-  pwm.setPWM(1, 0, 400);
-  pwm.setPWM(2, 0, 250);
-  pwm.setPWM(3, 0, 300);
+  //pwm.setPWM(0, 0, 600);
+  //pwm.setPWM(1, 0, 400);
+  //pwm.setPWM(2, 0, 250);
+  //pwm.setPWM(3, 0, 300);
 }
 
 
 void loop() {
+  moveForward();
   distance = measureDistance();
   if(distance < 10){
     stopMotors();
