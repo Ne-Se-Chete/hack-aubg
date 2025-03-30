@@ -5,7 +5,7 @@
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 
 #define SERVOMIN  150
-#define SERVOMAX  600
+#define SERVOMAX  500
 #define USMIN     600
 #define USMAX     2400
 #define SERVO_FREQ 50
@@ -27,18 +27,24 @@ bool armClawClosed = false;
 
 void adjustArm(int delta) {
   int newPos = currentArmPos + delta;
-  
+
   if (newPos < SERVOMIN) {
-    newPos = SERVOMIN;
+    return;
   } else if (newPos > SERVOMAX) {
-    newPos = SERVOMAX;
+    return;
   }
 
   if (newPos != currentArmPos) {
-    pwm.setPWM(ARM_SERVO_CHANNEL, 0, newPos);
-    currentArmPos = newPos;
+    int stepDelay = 10;
+    int steps = abs(newPos - currentArmPos);
 
-    delay(10);
+    for (int i = 0; i <= steps; i++) {
+      int currentStepPos = currentArmPos + (delta > 0 ? i : -i);
+      pwm.setPWM(ARM_SERVO_CHANNEL, 0, currentStepPos);
+      delay(stepDelay);
+    }
+
+    currentArmPos = newPos;
 
     Serial.print("Arm adjusted to: ");
     Serial.println(currentArmPos);
