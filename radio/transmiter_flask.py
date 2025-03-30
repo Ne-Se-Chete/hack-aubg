@@ -49,16 +49,16 @@ def set_message():
     
     # Ensure all the expected keys are present
     if all(key in data for key in ('Id', 'Property', 'Value', 'Timestamp')):
-        # Convert the fields to appropriate types if necessary
-        message = {
-            "Id": int(data['Id']),
-            "Property": int(data['Property']),
-            "Value": int(data['Value']),
-            "Timestamp": data['Timestamp']  # Assuming Timestamp is already a string
-        }
         
-        # Convert the message to string format to send over NRF24
-        message_to_send = str(message).encode()
+        message = [
+            int(data['Id']),
+            int(data['Property']),
+            int(data['Value']),
+            data['Timestamp']  # Keep Timestamp as string (or convert it to a format if needed)
+        ]
+
+        # Convert the list into a comma-separated string
+        message_to_send = ','.join(map(str, message)).encode()
         
         # Respond with the received data (optional confirmation)
         return jsonify({"status": "success", "message": f"Message set to: {message}"}), 200
