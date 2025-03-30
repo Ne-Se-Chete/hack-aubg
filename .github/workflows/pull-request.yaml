@@ -1,4 +1,4 @@
-name: Pull Request - PatchBot
+name: Pull Request - PatchBot Backend
 
 on:
   pull_request:
