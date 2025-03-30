@@ -78,13 +78,13 @@ void loop() {
     if (String(payload) != "---") {
       messageCount++;
       receivedMessages += String(payload) + ";";  // Store the message with a separator
-    }
-
-    // If we have received 10 messages, check if they are new and send them to the server
-    // Only send if the received data is different from the last sent data
-    if (messageCount >= 10 && receivedMessages != lastSentData) {
-      sendDataToServer(receivedMessages);
-      lastSentData = receivedMessages;  // Update lastSentData to the new sent data
+      
+      // If we have received 10 messages, check if they are new and send them to the server
+      // Only send if the received data is different from the last sent data
+      if (receivedMessages != lastSentData) {
+        sendDataToServer(receivedMessages);
+        lastSentData = receivedMessages;  // Update lastSentData to the new sent data
+      }
       messageCount = 0;  // Reset the count after sending
       receivedMessages = "";  // Clear the stored messages
     }
@@ -124,7 +124,9 @@ void sendDataToServer(const String& data) {
 }
 
 String createJsonPayload(const String& data) {
-  String json = "[";  // Start the JSON array
+  // Create a JSON object
+  String json = "{";
+
   int startIndex = 0;
   int endIndex = data.indexOf(";");
 
@@ -137,19 +139,19 @@ String createJsonPayload(const String& data) {
       String property = message.substring(0, propertyEnd);
       String value = message.substring(propertyEnd + 1);
       
-      // Build the JSON object for each message with correct order and as strings
-      json += "{\"Property\": \"" + property + "\", \"Value\": \"" + value + "\"},";
+      // Add the JSON object with correct key-value pairs for each message
+      json += "\"Property\": \"" + property + "\", \"Value\": \"" + value + "\",";
     }
     
     startIndex = endIndex + 1;
     endIndex = data.indexOf(";", startIndex);
   }
 
-  // Remove last comma and close the JSON array
+  // Remove last comma and close the JSON object
   if (json.length() > 1) {
     json.remove(json.length() - 1);
   }
-  json += "]";
+  json += "}";
 
   return json;
 }
