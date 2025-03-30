@@ -48,13 +48,12 @@ def set_message():
     data = request.get_json()  # Get the JSON data from the request
     
     # Ensure all the expected keys are present
-    if all(key in data for key in ('Id', 'Property', 'Value', 'Timestamp')):
+    if all(key in data for key in ('Property', 'Value')):
         
         message = [
-            int(data['Id']),
-            int(data['Property']),
+            int(data['Property']),  
             int(data['Value']),
-            data['Timestamp']  # Keep Timestamp as string (or convert it to a format if needed)
+            # data['Timestamp']  # Keep Timestamp as string (or convert it to a format if needed)
         ]
 
         # Convert the list into a comma-separated string
