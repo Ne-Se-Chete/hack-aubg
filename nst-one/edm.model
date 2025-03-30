@@ -48,10 +48,12 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
+                        "calculatedPropertyExpressionCreate": "new Date()",
                         "dataName": "READING_TIMESTAMP",
                         "dataNullable": "true",
                         "dataType": "TIMESTAMP",
                         "description": "",
+                        "isCalculatedProperty": "true",
                         "name": "Timestamp",
                         "tooltip": "",
                         "widgetIsMajor": "true",

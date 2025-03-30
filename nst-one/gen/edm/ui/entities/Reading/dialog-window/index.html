@@ -78,7 +78,7 @@
 	                                state="{{ forms.details['Timestamp'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Timestamp"
-	                                ng-readonly="action === 'select'"
+	                                ng-readonly="true"
 	                                ng-minlength="${property.minLength} || 0"
 	                                ng-maxlength="${property.maxLength} || -1"
 	                                dg-input-rules="{ patterns: [''] }"

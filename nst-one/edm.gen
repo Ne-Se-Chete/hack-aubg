@@ -3,14 +3,15 @@
   "brandUrl": "nesechete.com",
   "title": "NST one",
   "description": "api ts",
-  "projectName": "nst-one",
-  "workspaceName": "workspace",
-  "filePath": "edm.model",
-  "templateId": "template-application-angular/template/template.js",
   "fileName": "edm",
   "genFolderName": "edm",
   "dataSource": "DefaultDB",
   "tablePrefix": "",
+  "roles": [],
+  "projectName": "nst-one",
+  "workspaceName": "workspace",
+  "filePath": "edm.model",
+  "templateId": "template-application-angular/template/template.js",
   "perspectives": {
     "entities": {
       "views": [
@@ -24,7 +25,6 @@
       "role": ""
     }
   },
-  "roles": [],
   "models": [
     {
       "properties": [
@@ -104,10 +104,12 @@
           "inputRule": ""
         },
         {
+          "calculatedPropertyExpressionCreate": "new Date()",
           "dataName": "READING_TIMESTAMP",
           "dataNullable": true,
           "dataType": "TIMESTAMP",
           "description": "",
+          "isCalculatedProperty": true,
           "name": "Timestamp",
           "tooltip": "",
           "widgetIsMajor": true,
@@ -119,7 +121,6 @@
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isRequiredProperty": false,
-          "isCalculatedProperty": false,
           "widgetLabel": "Timestamp",
           "widgetDropdownUrl": "",
           "dataTypeJava": "timestamp",

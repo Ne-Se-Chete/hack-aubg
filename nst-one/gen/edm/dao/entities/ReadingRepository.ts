@@ -13,7 +13,6 @@ export interface ReadingEntity {
 export interface ReadingCreateEntity {
     readonly Property?: number;
     readonly Value?: number;
-    readonly Timestamp?: Date;
 }
 
 export interface ReadingUpdateEntity extends ReadingCreateEntity {
@@ -133,6 +132,8 @@ export class ReadingRepository {
     }
 
     public create(entity: ReadingCreateEntity): number {
+        // @ts-ignore
+        (entity as ReadingEntity).Timestamp = new Date();
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
