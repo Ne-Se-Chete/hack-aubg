@@ -8,8 +8,8 @@
 #define CSN_PIN  21
 
 // Set your Wi-Fi credentials
-const char* ssid = "MyNet1";
-const char* password = "samsungs20";
+const char* ssid = "#";
+const char* password = "#";
 
 // Create an RF24 object
 RF24 radio(CE_PIN, CSN_PIN);
@@ -24,8 +24,8 @@ char payload[256];  // Increase the size of the payload buffer
 const char* serverUrl = "http://192.168.84.164:8080/services/ts/nst-one/gen/edm/api/entities/ReadingService.ts";
 
 // Basic Authentication details
-const char* username = "admin";
-const char* passwordAuth = "admin";
+const char* username = "#";
+const char* passwordAuth = "#";
 
 // To hold the count of received messages
 int messageCount = 0;
